@@ -5,6 +5,7 @@ Anexo de la skill `orbita-execution`. Tu agente necesita **dos servidores MCP**:
 | Broker | MCP | Acceso | Quién manda la orden | `preset` |
 |---|---|---|---|---|
 | Wallbit | Oficial, remoto: `https://mcp.wallbit.io/mcp` | API key en el header `X-API-Key` (créala solo con permisos de lectura y trading) | Tu agente | `wallbit` (ver [broker-wallbit.md](broker-wallbit.md)) |
+| Berry (Latinoamérica; no EE.UU., Canadá ni UE) | Oficial, remoto: `https://connect.berry.app/mcp` | Inicio de sesión de Berry (OAuth) | Tu agente | `berry` (**en verificación**: mismas capacidades que Wallbit hasta confirmarlas; acciones de EE.UU. tokenizadas 1:1, puede no tener todas las acciones del universo) |
 | InvertirOnline (IOL) | Oficial, remoto: `https://mcp.invertironline.com` | Usuario de IOL + 2FA | **Confirmas cada orden**; solo lectura por defecto (reconecta para habilitar la gestión) | `iol` |
 | Interactive Brokers | Oficial, remoto: `https://api.ibkr.com/v1/api/mcp` | OAuth | **La envías tú desde una plataforma de IBKR**; el agente la prepara | `ibkr` |
 | Moomoo | Oficial vía Moomoo OpenAPI (remoto con OAuth, o local con OpenD) | OAuth / login en OpenD | Tu agente (aprobación opcional) | `moomoo` |
