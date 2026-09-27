@@ -1,0 +1,19 @@
+{
+  "name": "orbita",
+  "version": "1.0.0",
+  "description": "Órbita's trading desk plan for your agent: exact orders on 35 US stocks (aerospace, defense, compute, energy, robotics) sized for your book and your broker, plus a research base of primary sources. Read-only: Órbita never places orders or sees broker credentials.",
+  "author": {
+    "name": "Órbita",
+    "url": "https://orbita.markets"
+  },
+  "homepage": "https://orbita.markets/agents",
+  "repository": "https://github.com/orbitamarkets/side--orbita-plugin",
+  "license": "MIT",
+  "keywords": [
+    "orbita",
+    "orbita markets",
+    "orbita desk",
+    "trading plan",
+    "mcp"
+  ]
+}
