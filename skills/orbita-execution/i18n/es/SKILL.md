@@ -7,7 +7,7 @@ Operas **tu** cuenta con **tus** credenciales. Órbita nunca las pide ni las rec
 1. Lee tu libro en el broker: efectivo, posiciones con costo promedio, órdenes abiertas. Lee también el **último precio** de cada acción que tienes y de cada acción del plan vigente (Órbita no provee precios).
 2. Llama a `orbita_get_next_orders` con `book`, `prices` (por ejemplo `{"NVDA": 224.1}`) y `broker` (tus capacidades, o `preset` si tu broker está listado). Los stops y los triggers de precio se evalúan con tus precios; si falta alguno, la respuesta lo lista en una alerta `SEND_PRICES`: obtenlos y vuelve a llamar. Órbita no guarda ni registra tu libro ni tus precios.
 3. Ejecuta `orders` **en el orden de `step`**:
-   - `CANCEL`: cancela la orden abierta que coincide (símbolo, lado, precio).
+   - `CANCEL`: cancela la orden abierta que coincide (símbolo, lado, precio) y confirma que el broker la canceló. Una venta que necesita una cancelación nunca viene en la misma respuesta: después de las cancelaciones (aviso `CALL_AGAIN_AFTER_CANCEL`), vuelve a llamar con el libro actualizado y la venta llega calculada sobre lo que todavía tienes.
    - `MARKET`: si viene `amountUsd`, envíala por monto; si viene `shares`, por shares.
    - `LIMIT` / `STOP` / `OCO`: con los precios y el `timeInForce` indicados.
 4. Guarda el `ref` de cada orden enviada. Si vuelves a llamar y aparece el mismo `ref`, **no la envíes de nuevo** salvo que la anterior haya sido rechazada o haya vencido.

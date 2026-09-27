@@ -12,7 +12,7 @@ You trade **your** account with **your** credentials. Órbita never asks for the
 1. Read your book at the broker: cash, positions with average cost, open orders. Also read the **last price** of each stock you hold and of each stock in the current plan (Órbita does not supply prices).
 2. Call `orbita_get_next_orders` with `book`, `prices` (for example `{"NVDA": 224.1}`) and `broker` (your capabilities, or `preset` if your broker is listed). Stops and price triggers are evaluated with your prices; if some are missing, the response lists them in a `SEND_PRICES` alert: fetch them and call again. Órbita never stores or logs your book or prices.
 3. Execute `orders` **in `step` order**:
-   - `CANCEL`: cancel the matching open order (symbol, side, price).
+   - `CANCEL`: cancel the matching open order (symbol, side, price) and confirm the broker cancelled it. A sell that needs a cancel never comes in the same response: after the cancels (`CALL_AGAIN_AFTER_CANCEL` alert), call again with the updated book and the sell comes sized to what you still hold.
    - `MARKET`: if it has `amountUsd`, send by amount; if it has `shares`, by shares.
    - `LIMIT` / `STOP` / `OCO`: with the given prices and `timeInForce`.
 4. Keep the `ref` of every order you send. If you call again and the same `ref` shows up, **do not send it again** unless the previous one was rejected or expired.
