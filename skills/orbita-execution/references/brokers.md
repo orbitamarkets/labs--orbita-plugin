@@ -5,7 +5,7 @@ Annex to the `orbita-execution` skill. Your agent needs **two MCP servers**: Ór
 | Broker | MCP | Access | Who sends the order | `preset` |
 |---|---|---|---|---|
 | Wallbit | Official, hosted: `https://mcp.wallbit.io/mcp` | API key in the `X-API-Key` header (create it with read and trade permissions only) | Your agent | `wallbit` (see [broker-wallbit.md](broker-wallbit.md)) |
-| Berry (Latin America; not US, Canada or EU) | Official, hosted: `https://connect.berry.app/mcp` | Berry sign-in (OAuth) | Your agent | `berry` (**being verified**: same capabilities as Wallbit until confirmed; tokenized US stocks 1:1, may not list every stock in the universe) |
+| Berry (Latin America; not US, Canada or EU) | Official, hosted: `https://connect.berry.app/mcp` | Berry sign-in (OAuth) | Your agent | `berry` (no stops or API cancels, like Wallbit; tokenized US stocks 1:1, may not list every stock in the universe) |
 | InvertirOnline (IOL) | Official, hosted: `https://mcp.invertironline.com` | IOL login + 2FA | **You confirm every order**; read-only by default (reconnect to enable management) | `iol` |
 | Interactive Brokers | Official, hosted: `https://api.ibkr.com/v1/api/mcp` | OAuth | **You submit it from an IBKR platform**; the agent drafts it | `ibkr` |
 | Moomoo | Official via Moomoo OpenAPI (hosted with OAuth, or local OpenD) | OAuth / OpenD login | Your agent (optional approval) | `moomoo` |

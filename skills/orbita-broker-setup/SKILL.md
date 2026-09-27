@@ -25,7 +25,7 @@ Use the table in [orbita-execution/references/brokers.md](../orbita-execution/re
 |---|---|
 | Argentina or Latin America, Grok Bot / OpenCode (or another agent that accepts headers) | **Wallbit** (US stocks in USD, covers the whole universe; hosted MCP with an API key in a header) |
 | Argentina, a chat app on the web (ChatGPT, Claude) | **InvertirOnline (IOL)**: hosted MCP with IOL login; you confirm every order. Or use Grok Bot (orbita.markets/grok) with Wallbit. |
-| Latin America, any app (also ChatGPT or Claude on the web) | **Berry** (being verified): hosted MCP with Berry sign-in; tokenized US stocks 1:1 from $1. It may not list every stock in the universe, and its order types are still being verified: check the orders before sending. |
+| Latin America, any app (also ChatGPT or Claude on the web) | **Berry**: hosted MCP with Berry sign-in; tokenized US stocks 1:1 from $1. It may not list every stock in the universe. |
 | Rest of the world | **Interactive Brokers** (you submit orders in IBKR) or **Moomoo** (agent trades, optional approval). **Alpaca** only with Claude Desktop / Claude Code / Cursor (local MCP). |
 | United States | **Robinhood** (separate Agentic account), **Public**, **Webull**, **tastytrade**, plus the above |
 | Wants to confirm each order | IBKR, IOL, or any broker with approval turned on |
