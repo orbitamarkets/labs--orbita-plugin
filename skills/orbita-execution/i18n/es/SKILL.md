@@ -10,7 +10,7 @@ Operas **tu** cuenta con **tus** credenciales. Órbita nunca las pide ni las rec
    - `CANCEL`: cancela la orden abierta que coincide (símbolo, lado, precio) y confirma que el broker la canceló. Una venta que necesita una cancelación nunca viene en la misma respuesta: después de las cancelaciones (aviso `CALL_AGAIN_AFTER_CANCEL`), vuelve a llamar con el libro actualizado y la venta llega calculada sobre lo que todavía tienes.
    - `MARKET`: si viene `amountUsd`, envíala por monto; si viene `shares`, por shares.
    - `LIMIT` / `STOP` / `OCO`: con los precios y el `timeInForce` indicados.
-4. Guarda el `ref` de cada orden enviada. Si vuelves a llamar y aparece el mismo `ref`, **no la envíes de nuevo** salvo que la anterior haya sido rechazada o haya vencido.
+4. Guarda el `ref` de cada orden enviada. Si vuelves a llamar y aparece el mismo `ref`, **no la envíes de nuevo** salvo que la anterior haya sido rechazada o haya vencido. Deja alrededor de un segundo entre órdenes: algunos brokers (Wallbit) limitan las ráfagas y responden 429; espera unos segundos y vuelve a enviarla.
 5. Confirma los fills en tu broker. "Aceptada" no es "ejecutada".
 6. Revisa `watches`: son condiciones que vigilas tú (stops o take profits por software, cuando tu broker no los tiene nativos). En cada slot, si se cumple la condición, haz lo que dice `then`.
 7. Atiende las `alerts`, sobre todo las `critical`: requieren una acción tuya fuera de la API (por ejemplo, cancelar en la app del broker).
