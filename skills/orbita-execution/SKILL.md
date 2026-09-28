@@ -15,7 +15,7 @@ You trade **your** account with **your** credentials. Órbita never asks for the
    - `CANCEL`: cancel the matching open order (symbol, side, price) and confirm the broker cancelled it. A sell that needs a cancel never comes in the same response: after the cancels (`CALL_AGAIN_AFTER_CANCEL` alert), call again with the updated book and the sell comes sized to what you still hold.
    - `MARKET`: if it has `amountUsd`, send by amount; if it has `shares`, by shares.
    - `LIMIT` / `STOP` / `OCO`: with the given prices and `timeInForce`.
-4. Keep the `ref` of every order you send. If you call again and the same `ref` shows up, **do not send it again** unless the previous one was rejected or expired. Space your orders about a second apart: some brokers (Wallbit) rate-limit bursts and answer 429; wait a few seconds and send it again.
+4. Keep the `ref` of every order you send. If you call again and the same `ref` shows up, **do not send it again** unless the previous one was rejected or expired. Space your orders about a second apart: some brokers (Wallbit) rate-limit bursts and answer 429. Wait what its `retry-after` says (it can be minutes) before calling again: retrying earlier can extend the block.
 5. Confirm fills at your broker. "Accepted" is not "filled".
 6. Check `watches`: conditions you monitor yourself (software stops or take profits, when your broker lacks them natively). Every slot, if the condition is met, do what `then` says.
 7. Handle `alerts`, especially `critical` ones: they need an action outside the API (for example, cancelling in the broker's app).
