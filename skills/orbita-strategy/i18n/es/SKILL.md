@@ -1,6 +1,6 @@
-# Estrategia Órbita
+# Estrategia Órbita Pulso
 
-Órbita opera **una única estrategia** para todos sus suscriptores. No se personaliza: el mismo plan, escalado al libro de cada uno. Es información general, no asesoramiento personalizado; quien ejecuta decide y es responsable de sus órdenes.
+Esta skill describe **Órbita Pulso**, la estrategia de corto plazo de Órbita (órdenes con `strategy: "pulso"`). Es la misma para todos los suscriptores y no se personaliza: el mismo plan, escalado al libro de cada uno. Es información general, no asesoramiento personalizado; quien ejecuta decide y es responsable de sus órdenes.
 
 ## Qué se opera
 
@@ -16,7 +16,7 @@
   Fuera de esta lista no se opera. La mesa revisa el universo periódicamente y puede sumar o sacar acciones; las tools siempre reflejan la lista vigente.
 - **Solo la cuenta de inversiones** del broker. Nunca cuentas corrientes, de ahorro ni transferencias entre cuentas.
 
-## Horizonte y calendario
+## Plazo y calendario
 
 - Corto plazo, en sesión regular de EE.UU. (lunes a viernes, 9:30–16:00 ET).
 - **Flatten:** antes de cualquier cierre de mercado de más de un día (fin de semana, feriado de NYSE), el libro queda **100% en efectivo**. La hora límite viene en el plan (`flattenBy`). Esta regla no depende del plan: si el plan no llega, igual se aplica.

@@ -1,11 +1,11 @@
 ---
 name: orbita-strategy
-description: Mandate and risk rules of Órbita's single strategy (long only, USD, 35 US-listed names in aerospace, defense, compute, energy and robotics). Read it before trading for the first time or when you need to explain the strategy to a person. Spanish version: i18n/es/SKILL.md.
+description: Mandate and risk rules of Órbita Pulso, Órbita's short-term strategy (long only, USD, 35 US-listed names in aerospace, defense, compute, energy and robotics). Read it before trading for the first time or when you need to explain the strategy to a person. Spanish version: i18n/es/SKILL.md.
 ---
 
-# Órbita strategy
+# Órbita Pulso strategy
 
-Órbita runs **one single strategy** for every subscriber. It is not personalized: the same plan, scaled to each book. It is general information, not personalized advice; whoever executes decides and is responsible for their orders.
+This skill covers **Órbita Pulso**, Órbita's short-term strategy (orders tagged `strategy: "pulso"`). It is the same for every subscriber and not personalized: the same plan, scaled to each book. It is general information, not personalized advice; whoever executes decides and is responsible for their orders.
 
 ## What is traded
 
@@ -21,7 +21,7 @@ description: Mandate and risk rules of Órbita's single strategy (long only, USD
   Nothing outside this list. The desk reviews the universe regularly and may add or remove names; the tools always reflect the current list.
 - **Only the investment account** at the broker. Never checking or savings accounts, never transfers between accounts.
 
-## Horizon and calendar
+## Holding period and calendar
 
 - Short term, during the regular US session (Monday to Friday, 9:30–16:00 ET).
 - **Flatten:** before any market closure longer than a day (weekend, NYSE holiday) the book goes **100% cash**. The deadline comes in the plan (`flattenBy`). This rule does not depend on the plan: if no plan arrives, it still applies.
