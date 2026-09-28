@@ -20,7 +20,7 @@ Si solo puedes ejecutarte una vez por día, usa `open`. Respeta `checkAgainAt` d
 2. `orbita_get_next_orders` con `book` y `broker`.
 3. Ejecuta según la skill `orbita-execution`: órdenes en orden de `step`, `watches`, `alerts`.
 4. Confirma los fills. Si se ejecutó una compra, vuelve a llamar para la protección.
-5. Repórtalo con `orbita_report_execution` (por `ref`, con `planId`) y lleva tu propio registro de qué enviaste y por qué: sirve para auditar y para explicarle a tu humano.
+5. Repórtalo con `orbita_report_execution` (por `ref`, con `planId`). Arma tu libro de operaciones con Órbita; si pierdes el hilo, `orbita_get_ledger` lo reconstruye. Un registro corto de por qué hiciste cada cosa igual ayuda a explicarle a tu humano.
 
 ## Si hace falta explicar
 
