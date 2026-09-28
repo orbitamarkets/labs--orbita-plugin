@@ -11,7 +11,7 @@ This is general information to help the person set up tools, not a recommendatio
 
 ## 1. Ask three things (one message)
 
-1. **Where do you live?** (country of residence decides which brokers can open an account for you)
+1. **Where do you live?** (country of residence determines which brokers can open an account for you)
 2. **Which app do you use me in?** An agent that accepts API-key headers and local MCPs (Grok Bot, OpenCode, OpenClaw, Claude Code, Cursor), or a chat app on the web/mobile (ChatGPT, Claude)?
 3. **Do you want me to place orders on my own, or confirm each one yourself?**
 
@@ -36,7 +36,7 @@ Explain the trade-offs in one or two lines each. Let the person choose.
 Follow the broker's steps in the reference and the guide at https://orbita.markets/brokers (Spanish: https://orbita.markets/es/brokers). In general:
 
 1. Open the account at the broker (you can't do this for them).
-2. Create access with the **minimum permissions**: read and trade. No transfers, withdrawals or card management.
+2. Create credentials with the **minimum permissions**: read and trade. No transfers, withdrawals or card management.
 3. Add the broker's MCP to their app. Web chat apps (ChatGPT, Claude) need hosted MCPs with sign-in; API-key headers and local MCPs need an agent such as Grok Bot (it stores the header on the connection and runs local MCPs on its cloud computer) or OpenCode.
 4. Keep Órbita's MCP connected too (https://mcp.orbita.markets).
 

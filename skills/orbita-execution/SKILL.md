@@ -10,19 +10,19 @@ You trade **your** account with **your** credentials. Órbita never asks for the
 ## The flow
 
 1. Read your book at the broker: cash, positions with average cost, open orders. Also read the **last price** of each stock you hold and of each stock in the current plan (Órbita does not supply prices).
-2. Call `orbita_get_next_orders` with `book`, `prices` (for example `{"NVDA": 224.1}`) and `broker` (your capabilities, or `preset` if your broker is listed). Stops and price triggers are evaluated with your prices; if some are missing, the response lists them in a `SEND_PRICES` alert: fetch them and call again. Órbita uses your book and prices to compute and discards them: never stored or logged.
+2. Call `orbita_get_next_orders` with `book`, `prices` (for example `{"NVDA": 224.1}`) and `broker` (your capabilities, or `preset` if your broker is listed). Stops and price triggers are evaluated with your prices; if some are missing, the response lists them in a `SEND_PRICES` alert: fetch them and call again. Órbita uses your book and prices only for the calculation, then discards them; they are never stored or logged.
 3. Execute `orders` **in `step` order**:
-   - `CANCEL`: cancel the matching open order (symbol, side, price) and confirm the broker cancelled it. A sell that needs a cancel never comes in the same response: after the cancels (`CALL_AGAIN_AFTER_CANCEL` alert), call again with the updated book and the sell comes sized to what you still hold.
+   - `CANCEL`: cancel the matching open order (symbol, side, price) and confirm the broker cancelled it. A sell that needs a cancel never comes in the same response: after the cancels (`CALL_AGAIN_AFTER_CANCEL` alert), call again with the updated book and the sell will be sized to what you still hold.
    - `MARKET`: if it has `amountUsd`, send by amount; if it has `shares`, by shares.
    - `LIMIT` / `STOP` / `OCO`: with the given prices and `timeInForce`.
-4. Keep the `ref` of every order you send. If you call again and the same `ref` shows up, **do not send it again** unless the previous one was rejected or expired. Space your orders about a second apart: some brokers (Wallbit) rate-limit bursts and answer 429. Wait what its `retry-after` says (it can be minutes) before calling again: retrying earlier can extend the block.
+4. Keep the `ref` of every order you send. If you call again and the same `ref` shows up, **do not send it again** unless the previous one was rejected or expired. Space your orders about a second apart: some brokers (Wallbit) rate-limit bursts and answer 429. Wait as long as its `retry-after` says (it can be minutes) before calling again: retrying earlier can extend the block.
 5. Confirm fills at your broker. "Accepted" is not "filled".
 6. Check `watches`: conditions you monitor yourself (software stops or take profits, when your broker lacks them natively). Every slot, if the condition is met, do what `then` says.
 7. Handle `alerts`, especially `critical` ones: they need an action outside the API (for example, cancelling in the broker's app).
 8. Call again at `checkAgainAt`, or earlier if a buy filled: protection (take profit / stop) is computed from the updated book.
-9. Report what happened with `orbita_report_execution`: one entry per `ref` with status, shares, average price and time, including rejected and skipped orders. Reporting the same `ref` again updates it. Your reports build your **operations ledger** with Órbita: the person's history, and which shares belong to each strategy (`strategy` on every order). `orbita_get_ledger` shows it. If a response brings `REPORT_PENDING`, report those refs; if it brings `LEDGER_MISMATCH`, your broker and the ledger disagree (a sale outside Órbita, or an order you didn't report): tell the person. Órbita keeps the orders it issues and what you report, never your book or credentials.
+9. Report what happened with `orbita_report_execution`: one entry per `ref` with status, shares, average price and time, including rejected and skipped orders. Reporting the same `ref` again updates it. Your reports build your **trade ledger** with Órbita: the person's history, and which shares belong to each strategy (`strategy` on every order). `orbita_get_ledger` shows it. If a response includes `REPORT_PENDING`, report those refs; if it includes `LEDGER_MISMATCH`, your broker and the ledger disagree (a sale outside Órbita, or an order you didn't report): tell the person. Órbita keeps the orders it issues and what you report, never your book or credentials.
 
-Every alert, reason and skipped action carries a stable `code` (e.g. `SHARES_LOCKED_NO_CANCEL`, `SKIP_TRIGGER_NOT_MET`) besides its translated text: branch on the code, show the text.
+Every alert, reason and skipped action carries a stable `code` (e.g. `SHARES_LOCKED_NO_CANCEL`, `SKIP_TRIGGER_NOT_MET`) alongside its translated text: branch on the code, show the text.
 
 ## If you do not send your book
 

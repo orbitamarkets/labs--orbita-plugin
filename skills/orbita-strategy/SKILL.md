@@ -5,7 +5,7 @@ description: Mandate and risk rules of Órbita Pulso, Órbita's short-term strat
 
 # Órbita Pulso strategy
 
-This skill covers **Órbita Pulso**, Órbita's short-term strategy (orders tagged `strategy: "pulso"`). It is the same for every subscriber and not personalized: the same plan, scaled to each book. It is general information, not personalized advice; whoever executes decides and is responsible for their orders.
+This skill covers **Órbita Pulso**, Órbita's short-term strategy (orders tagged `strategy: "pulso"`). It is the same for every subscriber and not personalized: the same plan, scaled to each book. It is general information, not personalized advice; whoever places the orders decides and is responsible for them.
 
 ## What is traded
 
@@ -24,16 +24,16 @@ This skill covers **Órbita Pulso**, Órbita's short-term strategy (orders tagge
 ## Holding period and calendar
 
 - Short term, during the regular US session (Monday to Friday, 9:30–16:00 ET).
-- **Flatten:** before any market closure longer than a day (weekend, NYSE holiday) the book goes **100% cash**. The deadline comes in the plan (`flattenBy`). This rule does not depend on the plan: if no plan arrives, it still applies.
+- **Flatten:** before any market closure longer than a day (weekend, NYSE holiday) the book goes **100% cash**. The deadline is given in the plan (`flattenBy`). This rule does not depend on the plan: if no plan arrives, it still applies.
 - **Max hold** per position: `maxHoldSessions` sessions.
 
 ## Risk rules (per position)
 
-- **Take profit:** +3% over average cost (`takeProfitPctFromCost`).
-- **Stop loss:** −2% under average cost (`stopLossPctFromCost`).
+- **Take profit:** +3% above average cost (`takeProfitPctFromCost`).
+- **Stop loss:** −2% below average cost (`stopLossPctFromCost`).
 - **Minimum ticket** for a buy: 10% of the book (`minTicketPctOfBook`).
 
-The current values always come in the plan; if they differ from these, the plan wins.
+The current values are always given in the plan; if they differ from these, the plan wins.
 
 ## The plan rules
 
