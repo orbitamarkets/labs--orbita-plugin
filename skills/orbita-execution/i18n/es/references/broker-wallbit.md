@@ -1,6 +1,6 @@
 # Broker: Wallbit
 
-Anexo de la skill `orbita-execution` para quien opera en Wallbit con su propia API key. Lo general (tamaños, precios, flatten) está en la skill; aquí solo lo específico de Wallbit. Órbita nunca pide ni recibe tu key.
+Anexo de la skill `orbita-execution` para quien opera en Wallbit con su propia API key. Lo general (tamaños, precios, flatten) está en la skill; aquí solo lo específico de Wallbit. Órbita nunca pide ni recibe tu key. Usa `broker: { preset: "wallbit" }` en `orbita_get_next_orders`.
 
 Base: `https://api.wallbit.io`, header `X-API-Key`. Solo la cuenta de inversiones.
 
@@ -28,7 +28,7 @@ Base: `https://api.wallbit.io`, header `X-API-Key`. Solo la cuenta de inversione
 
 Como no hay STOP ni OCO, se usa el esquema de *stop por software* de la skill `orbita-execution` (Órbita lo calcula con el preset `wallbit`):
 
-- **Take profit**: una sola orden `SELL LIMIT` por las shares enteras de la posición, al precio de `risk.takeProfitPctFromCost`. `GTC` si la posición pasa la noche; `DAY` si se cierra en el día.
+- **Take profit**: una sola orden `SELL LIMIT` por las shares enteras de la posición, al precio de `risk.takeProfitPctFromCost`.
 - **Stop loss por software**: en cada slot, si `último ≤ costo × (1 + stopLossPctFromCost/100)` y hay shares libres → `SELL MARKET` por esas shares.
 - **La trampa**: si el TP LIMIT bloquea todas las shares y el precio cae bajo el stop, el MARKET devuelve 422. Salidas: esperar que venza la DAY, que se llene el TP, o cancelar a mano en la app de Wallbit. Para reducir el riesgo, prefiere TP `DAY` y vuelve a colocarlo cada mañana si la posición sigue.
 

@@ -26,8 +26,7 @@ Usa la tabla de [orbita-execution/references/brokers.md](../orbita-execution/ref
 | Argentina o Latinoamérica, con Grok Bot / OpenCode (u otro agente que acepte headers) | **Wallbit** (acciones de EE.UU. en USD, cubre todo el universo; MCP remoto con API key en un header) |
 | Argentina, con una app de chat en la web (ChatGPT, Claude) | **InvertirOnline (IOL)**: MCP remoto con usuario de IOL; confirmas cada orden. O usar Grok Bot (orbita.markets/grok) con Wallbit. |
 | Latinoamérica, con cualquier app (también ChatGPT o Claude en la web) | **Berry**: MCP remoto con inicio de sesión de Berry; acciones de EE.UU. tokenizadas 1:1 desde USD 1. Puede no tener todas las acciones del universo. |
-| Resto del mundo | **Interactive Brokers** (envías las órdenes desde IBKR) o **Moomoo** (el agente opera, aprobación opcional). **Alpaca** solo con Claude Desktop / Claude Code / Cursor (MCP local). |
-| Estados Unidos | **Robinhood** (cuenta Agentic separada), **Public**, **Webull**, **tastytrade**, además de los anteriores |
+| Resto del mundo | **Interactive Brokers** (envías las órdenes desde IBKR) o **Moomoo** (el agente opera, aprobación opcional). Si vive en EE.UU., también **Robinhood** (cuenta Agentic separada), **Public**, **Webull** y **tastytrade**. **Alpaca** necesita un agente que corra MCP locales (Grok Bot en su computadora en la nube, OpenCode, Claude Code, Cursor). |
 | Quiere confirmar cada orden | IBKR, IOL o cualquier broker con la aprobación activada |
 
 Explica las ventajas y desventajas en una o dos líneas cada una. Deja que la persona elija.

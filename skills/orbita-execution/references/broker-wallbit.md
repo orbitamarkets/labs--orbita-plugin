@@ -34,7 +34,7 @@ With no STOP and no OCO, Órbita uses the *software stop* scheme of the `orbita-
 
 ## Flatten
 
-Before `flattenBy`: sell everything with `MARKET` by shares. If a sale is locked by a pending LIMIT, Thursday's DAY orders have already expired by Friday morning: use `DAY` take profits the days before a flatten.
+Before `risk.flattenBy`: sell everything with `MARKET` by shares. If a sale is locked by a pending LIMIT, Thursday's DAY orders have already expired by Friday morning: use `DAY` take profits the days before a flatten.
 
 ## API limits
 
