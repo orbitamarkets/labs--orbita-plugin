@@ -24,6 +24,8 @@ Base: `https://api.wallbit.io`, header `X-API-Key`. Investment account only.
 
 `GET /api/public/v1/balance/stocks`: cash comes as an item with `symbol: "USD"`; the rest are positions (`symbol`, `shares`). For a MARKET BUY send `amount` in USD; for LIMIT, `shares`.
 
+**Shares in `transactions` are rounded to 2 decimals** (a buy of 0.0192 shares shows 0.01; one of 0.0091 shows 0). Take the position size from `balance/stocks`, and for each trade compute shares as amount / `share_price`: that gives the real average cost and the right `shares` for `orbita_report_execution`.
+
 ## Take profit and stop loss at Wallbit
 
 With no STOP and no OCO, Órbita uses the *software stop* scheme of the `orbita-execution` skill (the `wallbit` preset does this):
