@@ -27,6 +27,7 @@ Esta skill describe **Órbita Pulso**, la estrategia de corto plazo de Órbita (
 - **Take profit:** +3% sobre el costo promedio (`takeProfitPctFromCost`).
 - **Stop loss:** −2% bajo el costo promedio (`stopLossPctFromCost`).
 - **Ticket mínimo** de compra: 10% del libro (`minTicketPctOfBook`).
+- **No perseguir:** una entrada "arriba de X" se saltea si el precio ya está más de 1,5% por encima de X (`SKIP_CHASE`); con take profit de +3%, comprar más arriba regala la mitad de la ganancia posible.
 
 Los valores vigentes vienen siempre en el plan; si difieren de estos, mandan los del plan.
 

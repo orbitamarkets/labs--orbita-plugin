@@ -32,6 +32,7 @@ This skill covers **Órbita Pulso**, Órbita's short-term strategy (orders tagge
 - **Take profit:** +3% above average cost (`takeProfitPctFromCost`).
 - **Stop loss:** −2% below average cost (`stopLossPctFromCost`).
 - **Minimum ticket** for a buy: 10% of the book (`minTicketPctOfBook`).
+- **No chasing:** an entry "above X" is skipped if the price is already more than 1.5% past X (`SKIP_CHASE`); with a +3% take profit, buying higher gives away half the upside.
 
 The current values are always given in the plan; if they differ from these, the plan wins.
 
