@@ -7,7 +7,7 @@
     "url": "https://orbita.markets"
   },
   "homepage": "https://orbita.markets/agents",
-  "repository": "https://github.com/orbitamarkets/side--orbita-plugin",
+  "repository": "https://github.com/orbitamarkets/labs--orbita-plugin",
   "license": "MIT",
   "keywords": [
     "orbita",

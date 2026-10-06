@@ -7,7 +7,7 @@ workspace, con las reglas del worker y la cadena de mando: `../../../AGENTS.md`.
 ## Este repo
 
 - Sin package.json: contenido, no código.
-- GitHub: `https://github.com/orbitamarkets/side--orbita-plugin.git`
+- GitHub: `https://github.com/orbitamarkets/labs--orbita-plugin.git`
 - Deploy: ver las notas de despliegue del producto en `.development/about/`.
 - Sesión: `orbita--labs--orbita-plugin`
 
